@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projections</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%; min-height: 100%;
+    background: #0a0a0a;
+    color: #f0e8d5;
+    font-family: 'EB Garamond', Georgia, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    animation: fadein 1.4s ease-out forwards;
+    opacity: 0;
+  }
+
+  header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.6rem;
+  }
+
+  header p {
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    font-style: italic;
+    color: rgba(240, 232, 213, 0.6);
+    letter-spacing: 0.04em;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .card {
+    position: relative;
+    border: 1px solid rgba(240,232,213,0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    animation: fadein 1.4s ease-out forwards;
+    opacity: 0;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.3s; }
+  .card:nth-child(2) { animation-delay: 0.6s; }
+
+  .card:hover {
+    border-color: rgba(240,232,213,0.5);
+    transform: translateY(-3px);
+  }
+
+  .card-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .card-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.85) 100%);
+  }
+
+  .card-thumb .play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px; height: 52px;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+    transition: background 0.2s ease;
+  }
+
+  .card:hover .play {
+    background: rgba(255,255,255,0.15);
+  }
+
+  .play svg {
+    width: 20px; height: 20px;
+    fill: rgba(255,255,255,0.85);
+    margin-left: 3px;
+  }
+
+  .card-body {
+    padding: 1.2rem 1.4rem 1.4rem;
+    background: #111;
+  }
+
+  .card-body h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+
+  .card-body p {
+    font-size: clamp(0.78rem, 1.6vw, 0.92rem);
+    font-style: italic;
+    color: rgba(240,232,213,0.55);
+    line-height: 1.5;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2em 0.7em;
+    border-radius: 2px;
+    border: 1px solid;
+  }
+
+  .tag-amber { color: #c8860a; border-color: #c8860a; }
+  .tag-red   { color: #a00000; border-color: #a00000; }
+
+  footer {
+    margin-top: 3rem;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: rgba(240,232,213,0.25);
+    text-align: center;
+    animation: fadein 2s ease-out 1s forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Projections</h1>
+  <p>Philadelphia · Independence Mall · Open in fullscreen to project</p>
+</header>
+
+<div class="grid">
+
+  <a class="card" href="presidents.html">
+    <div class="card-thumb" style="background-image: url('presidents_thumb.jpg');">
+      <div class="play">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2>The Presidents&#8217; House</h2>
+      <p>Nine enslaved people lived and labored here. Their story belongs here still.</p>
+      <span class="tag tag-amber">Independence Hall</span>
+    </div>
+  </a>
+
+  <a class="card" href="liberty.html">
+    <div class="card-thumb" style="background-image: url('liberty_thumb.jpg');">
+      <div class="play">
+        <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      </div>
+    </div>
+    <div class="card-body">
+      <h2>Without Due Process</h2>
+      <p>Due process is a constitutional right. Without it, it&#8217;s kidnapping.</p>
+      <span class="tag tag-red">Liberty Bell</span>
+    </div>
+  </a>
+
+</div>
+
+<footer>
+  Open each projection fullscreen &middot; Works best in Safari or Chrome
+</footer>
+
+</body>
+</html>
