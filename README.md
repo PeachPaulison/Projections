@@ -1,12 +1,16 @@
 # Projections
 Built with HTML, CSS animations, and the belief that history belongs to everyone.
+
 Projections — Philadelphia
+
 Animated projection files for Independence Mall, Philadelphia.
+
 
 The Presidents’ House
 Location: Independence Mall
 File: presidents.html
 A slow Ken Burns drift into an 18th-century kitchen scene depicting the nine enslaved people who lived and labored in the Presidents’ House during Washington’s and Adams’s administrations, 1790–1797. The signage telling this history was removed in 2025.
+
 
 Without Due Process, It’s Kidnapping
 Location: Projected onto the Liberty Bell
